@@ -1,75 +1,62 @@
-# Cybersecurity Analysis: DNS and ICMP Traffic Investigation
+# Cybersecurity Scenario: DNS and ICMP Traffic Investigation
 
-This project is part of the Google Cybersecurity Professional Certificate, focusing on analyzing DNS and ICMP traffic to identify the root cause of a network-related incident. It demonstrates the use of **tcpdump** to investigate network protocols and provides an incident report based on the findings.
+This project is part of the Google Cybersecurity Professional Certificate, focusing on analyzing simulated DNS and ICMP traffic logs to diagnose and document network-related incidents. The exercise demonstrates network analysis and incident reporting skills.
 
 ---
 
 ## 📋 Project Overview
 
 ### Scenario
-A client reported that their website, **www.yummyrecipesforme.com**, was inaccessible, displaying the error message: **"destination port unreachable."** As a cybersecurity analyst, I analyzed packet data using **tcpdump** to identify and troubleshoot the issue.
-
-### Objective
-- Use a network protocol analyzer to capture and analyze **DNS** and **ICMP** traffic.
-- Determine which network protocol and service were affected during the incident.
-- Summarize findings in a professional cybersecurity incident report.
-
----
-
-## 📂 File Contents
-
-### 1. `tcpdump_log.txt`
-- Contains the raw tcpdump logs captured during the analysis.
-- Displays UDP requests and ICMP error messages for DNS traffic.
-
-### 2. `Incident_Report.pdf`
-- A detailed incident report summarizing the problem, analysis, and findings.
-- Explains the cause of the incident: the **DNS server's port 53** was not listening, resulting in ICMP error messages.
-
-### 3. `README.md` (this file)
-- An overview of the project, scenario, and key takeaways.
+A client reported issues accessing their website, **www.yummyrecipesforme.com**, with the error message: **"destination port unreachable."** As part of this simulated exercise, I analyzed the provided `tcpdump` log data to diagnose the issue.
 
 ---
 
 ## 🔍 Key Findings
 
-- **Error Identified:** UDP packets sent to the DNS server on port 53 resulted in **ICMP "udp port 53 unreachable"** error messages.
-- **Cause:** The DNS server was not listening on port 53, preventing the domain name resolution process.
-- **Impact:** End-users were unable to access the client's website.
+- **Error Identified:** UDP packets sent to the DNS server on port 53 resulted in ICMP "udp port 53 unreachable" error messages.
+- **Cause:** The DNS server was not listening on port 53, preventing DNS queries from resolving the domain name.
+- **Impact:** Users were unable to access the client's website due to failed DNS resolution.
 
 ---
 
-## 🛠️ Tools and Skills Demonstrated
+## 🛠️ Skills Demonstrated
 
-- **Network Protocol Analysis:**
-  - Utilized **tcpdump** to capture and examine network traffic.
-  - Analyzed ICMP and DNS protocols in transit.
+- **Network Traffic Analysis:**
+  - Interpreted DNS and ICMP traffic logs to identify root causes.
 - **Incident Response:**
-  - Identified potential risks and communicated findings in an incident report.
+  - Diagnosed issues with DNS protocols and provided actionable findings.
 - **Technical Writing:**
-  - Structured a clear and concise report for stakeholders.
+  - Summarized findings and analysis in a concise incident report.
 
 ---
 
-## 📖 How to Use This Repository
+## 📖 Incident Report Summary
 
-1. **Explore the tcpdump Logs:**
-   - Open the `tcpdump_log.txt` file to examine the captured traffic.
-2. **Review the Incident Report:**
-   - The `Incident_Report.pdf` explains the findings and provides a root cause analysis.
-3. **Use for Learning:**
-   - Reference this project as an example of network analysis and reporting.
+### Part 1: Summary of the Problem
+The UDP protocol analysis reveals that DNS queries sent from the client computer (IP: `192.51.100.15`) to the DNS server (IP: `203.0.113.2`) failed, with ICMP error messages indicating "udp port 53 unreachable." Port 53, used for DNS services, was unresponsive, likely due to a misconfiguration or the DNS service not running on the server. This caused DNS resolution to fail, making the website inaccessible.
+
+### Part 2: Analysis of the Data and Incident Causes
+The incident occurred at multiple timestamps, starting at **13:24:32**. The IT team became aware of the issue through customer reports of the website being unreachable, confirmed by replication of the error. Using **tcpdump**, they analyzed network traffic and identified that UDP packets to port 53 were met with ICMP error responses. The root cause was determined to be a misconfigured or inactive DNS server, which prevented proper DNS resolution.
+
+---
+
+## 📷 Screenshot of Network Logs
+
+Below is a sample of the provided `tcpdump` logs analyzed during the exercise:
+
+![image](https://github.com/user-attachments/assets/3c68fe98-bed0-4d30-9d05-f6244b422398)
+
 
 ---
 
 ## 🏆 Key Takeaways
 
-- Understanding DNS and ICMP traffic is essential for diagnosing network issues.
-- Tools like **tcpdump** can provide critical insights during cybersecurity incidents.
-- Clear communication of findings is a vital skill for cybersecurity analysts.
+- Understanding how to interpret DNS and ICMP traffic is essential for diagnosing network issues.
+- Tools like **tcpdump** are critical for identifying protocol-related failures.
+- Clear documentation of findings is crucial for effective incident response and reporting.
 
 ---
 
 ### License
 
-This project is for educational purposes and is shared under the MIT License.
+This project is shared for educational purposes and is licensed under the MIT License.
